@@ -10,16 +10,32 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const form = document.querySelector("#search-form > form");
 const input = document.querySelector("#input-localizacao");
-const sectionTempoInfo = document.querySelector("tempo-info");
+const sectionTempoInfo = document.querySelector("#tempo-info");
 form === null || form === void 0 ? void 0 : form.addEventListener("submit", (event) => __awaiter(void 0, void 0, void 0, function* () {
     event.preventDefault();
-    if (!input)
+    if (!input || !sectionTempoInfo)
         return;
     const localization = input.value;
+    if (localization.length < 3) {
+        alert("O local precisa ter, pelo menos 3 letras");
+        return;
+    }
     try {
         const response = yield fetch(`https://api.openweathermap.org/data/2.5/weather?q=${localization}&appid=d434620ca1717b66a2f90dc08801cec2&lang=pt_br&units=metric`);
         const datas = yield response.json();
         console.log(datas);
+        const infos = {
+            temperatura: Math.round(datas.main.temp),
+            local: datas.name,
+            icone: `https://api.openweathermap.org/img/wn/${datas.weather[0].icon}@2x.png`,
+        };
+        sectionTempoInfo.innerHTML = `
+    <div class="tempo-dados">
+      <h2>${infos.local}</h2>
+      <span>${infos.temperatura}ºC</span>
+    </div>
+    
+    <img src="${infos.icone}">`;
     }
     catch (error) {
         console.log("Deu um erro na obtenção da API", error);

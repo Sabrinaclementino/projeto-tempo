@@ -1,7 +1,7 @@
 const form = document.querySelector("#search-form > form");
 const input: HTMLInputElement | null =
   document.querySelector("#input-localizacao");
-const sectionTempoInfo = document.querySelector("tempo-info");
+const sectionTempoInfo = document.querySelector("#tempo-info");
 
 form?.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -11,7 +11,7 @@ form?.addEventListener("submit", async (event) => {
   const localization = input.value;
 
   if (localization.length < 3) {
-    alert("O local precisa ter, pelo menos, 3 letras");
+    alert("O local precisa ter, pelo menos 3 letras");
     return;
   }
 
