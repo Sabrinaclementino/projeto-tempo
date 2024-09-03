@@ -6,7 +6,7 @@ const sectionTempoInfo = document.querySelector("tempo-info");
 form?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  if (!input) return;
+  if (!input || !sectionTempoInfo) return;
 
   const localization = input.value;
 
@@ -28,6 +28,14 @@ form?.addEventListener("submit", async (event) => {
       local: datas.name,
       icone: `https://api.openweathermap.org/img/wn/${datas.weather[0].icon}@2x.png`,
     };
+
+    sectionTempoInfo.innerHTML = `
+    <div class="tempo-dados">
+      <h2>${infos.local}</h2>
+      <span>${infos.temperatura}ºC</span>
+    </div>
+    
+    <img src="${infos.icone}">`;
   } catch (error) {
     console.log("Deu um erro na obtenção da API", error);
   }
