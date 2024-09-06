@@ -27,7 +27,7 @@ form === null || form === void 0 ? void 0 : form.addEventListener("submit", (eve
         const infos = {
             temperatura: Math.round(datas.main.temp),
             local: datas.name,
-            icone: `https://api.openweathermap.org/img/wn/${datas.weather[0].icon}@2x.png`,
+            icone: `https://openweathermap.org/img/wn/${datas.weather[0].icon}@2x.png`,
         };
         sectionTempoInfo.innerHTML = `
     <div class="tempo-dados">
@@ -35,7 +35,7 @@ form === null || form === void 0 ? void 0 : form.addEventListener("submit", (eve
       <span>${infos.temperatura}ºC</span>
     </div>
     
-    <img src="${infos.icone}">`;
+    <img src="${infos.icone}" />`;
     }
     catch (error) {
         console.log("Deu um erro na obtenção da API", error);

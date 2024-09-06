@@ -26,7 +26,7 @@ form?.addEventListener("submit", async (event) => {
     const infos = {
       temperatura: Math.round(datas.main.temp),
       local: datas.name,
-      icone: `https://api.openweathermap.org/img/wn/${datas.weather[0].icon}@2x.png`,
+      icone: `https://openweathermap.org/img/wn/${datas.weather[0].icon}@2x.png`,
     };
 
     sectionTempoInfo.innerHTML = `
@@ -35,7 +35,7 @@ form?.addEventListener("submit", async (event) => {
       <span>${infos.temperatura}ºC</span>
     </div>
     
-    <img src="${infos.icone}">`;
+    <img src="${infos.icone}" />`;
   } catch (error) {
     console.log("Deu um erro na obtenção da API", error);
   }
