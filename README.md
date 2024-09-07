@@ -1,5 +1,9 @@
 # O site
 Este site foi desenvolvido para pesquisas simples de condições do tempo. Basta inserir o nome da região e as informações disponíveis irão aparecer para você.
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/fc90a48f-0dc1-485e-9e08-25db9e72f29a" width="550px"/>
+</div>
+
 # Aulas assistidas
 Através das aulas pela plataforma https://ada.tech/ pude chegar com sucesso ao resultado final desse projeto.
 # Evolução pessoal
@@ -23,3 +27,6 @@ Documentando mudanças no código pelo Github, os commits.
   <li>Github</li>
   <li>OpenWeatherAPI</li>
 </ul>
+
+
+
